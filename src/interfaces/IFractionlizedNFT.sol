@@ -9,6 +9,7 @@ interface IFractionlizedNFT is IERC721 {
         Gold,
         Silver
     }
+
     function getWeight() external view returns (uint256);
     function getType() external view returns (Type);
     function setPriceFeeds(address _priceFeed) external;

@@ -8,10 +8,7 @@ interface IWhitelist {
         Silver
     }
 
-    function getAmountMintable(
-        address _nft,
-        address _user
-    ) external view returns (uint256);
+    function getAmountMintable(address _nft, address _user) external view returns (uint256);
 
     function authorizeToAddToBatch(address _nft) external;
 
@@ -19,11 +16,7 @@ interface IWhitelist {
 
     function getTotalWeightOfBatch(uint256 _nodeId) external view returns (uint256);
 
-    function getUserNFTAmounts(
-        uint256 nodeId,
-        address user,
-        address nft
-    ) external view returns (uint256);
+    function getUserNFTAmounts(uint256 nodeId, address user, address nft) external view returns (uint256);
 
     function removeFromBatch(uint256 nodeNum, uint256 amount, address user) external;
 }
