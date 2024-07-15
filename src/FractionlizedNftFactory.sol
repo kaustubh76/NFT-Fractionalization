@@ -19,6 +19,7 @@ contract FractionlizedNftFactory is Ownable {
         uint256 startTime;
         uint256 endTime;
         IFractionlizedNFT.Type nftType;
+        uint256 nodePrice;
     }
 
     function deployNewFractionalizedNFT(
@@ -32,7 +33,8 @@ contract FractionlizedNftFactory is Ownable {
             params.endTime,
             params.nftType,
             whitelist,
-            nodeNum++
+            nodeNum++,
+            params.nodePrice
         );
         IWhitelist(whitelist).authorizeToAddToBatch(address(nft));
         return nft;

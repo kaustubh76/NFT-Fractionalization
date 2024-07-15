@@ -23,11 +23,11 @@ contract FractionlizedNFT is
     AggregatorV3Interface private priceFeed;
 
     IWhitelist private immutable whitelist;
+    uint256 private immutable NODE_PRICE;
 
     uint256 private constant FEE = 20e6; // $0.20
     uint256 private constant MAX_WEIGHT = 10000;
     uint256 private constant PRECISION = 1e18;
-    uint256 private constant NODE_PRICE = 500e8;
 
     error NotInSalePeriod();
     error InsufficientMintableAmount();
@@ -42,7 +42,8 @@ contract FractionlizedNFT is
         uint256 _endTime,
         Type _nftType,
         address _whitelist,
-        uint256 _nodeNum
+        uint256 _nodeNum,
+        uint256 _nodePrice
     ) ERC721Enumerable() ERC721(name, symbol) Ownable(msg.sender) {
         weight = _weight;
         startTime = _startTime;
@@ -50,6 +51,7 @@ contract FractionlizedNFT is
         nftType = _nftType;
         whitelist = IWhitelist(_whitelist);
         nodeNum = _nodeNum;
+        NODE_PRICE = _nodePrice;
     }
 
     function setPriceFeeds(address _priceFeed) external onlyOwner {

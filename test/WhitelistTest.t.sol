@@ -30,7 +30,8 @@ contract WhitelistTest is Test {
             100,
             IFractionlizedNFT.Type.Plat,
             address(whitelist),
-            0
+            0,
+            500e8
         );
     }
 
