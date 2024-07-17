@@ -127,4 +127,4 @@ contract Whitelist is IWhitelist, Ownable {
     function getUserNFTAmounts(uint256 nodeId, address user, address nft) external view returns (uint256) {
         return _batches[nodeId].userFractionsInBatch[user][nft];
     }
-}a
+}
